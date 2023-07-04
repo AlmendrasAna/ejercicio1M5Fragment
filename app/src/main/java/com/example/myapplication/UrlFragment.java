@@ -70,7 +70,7 @@ public class UrlFragment extends Fragment {
             String url = binding.urlTxt.getText().toString();
             ShowPageFragment.newInstance(url, "");
             getActivity().getSupportFragmentManager().beginTransaction().
-        add(R.id.fragmentContainerView, ShowPageFragment.newInstance(url, ""), "").commit();
+        add(R.id.fragmentContainerView, ShowPageFragment.newInstance(url, ""), "").addToBackStack(null).commit();
 
 
         });
