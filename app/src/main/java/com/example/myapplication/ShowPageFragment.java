@@ -3,11 +3,13 @@ package com.example.myapplication;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
+import android.widget.Toast;
 
 import com.example.myapplication.databinding.FragmentShowPageBinding;
 
@@ -65,9 +67,13 @@ private FragmentShowPageBinding binding;
 
 
         FragmentShowPageBinding binding=FragmentShowPageBinding.inflate(getLayoutInflater(),container,false);
+       // Toast.makeText(getActivity().getBaseContext(),mParam1, Toast.LENGTH_SHORT).show();
 
-        WebView webView = binding.urlWebView;
-        webView.loadUrl("https://www.google.cl");
+        binding.urlWebView.loadUrl(mParam1);
+
+        binding.blackB.setOnClickListener(v->{
+            FragmentManager fm = getActivity().getSupportFragmentManager(); fm.popBackStack();
+        });
 
         return binding.getRoot();
     }

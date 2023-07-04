@@ -67,10 +67,10 @@ public class UrlFragment extends Fragment {
         binding = FragmentUrlBinding.inflate(getLayoutInflater(), container, false);
 
         binding.showPageB.setOnClickListener(v -> {
-            String url = binding.urlTxt.toString();
+            String url = binding.urlTxt.getText().toString();
             ShowPageFragment.newInstance(url, "");
             getActivity().getSupportFragmentManager().beginTransaction().
-                    replace(R.id.fragmentContainerView, ShowPageFragment.newInstance(url, ""), "").commit();
+        add(R.id.fragmentContainerView, ShowPageFragment.newInstance(url, ""), "").commit();
 
 
         });
@@ -79,9 +79,4 @@ public class UrlFragment extends Fragment {
 
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-
-        super.onViewCreated(view, savedInstanceState);
-    }
 }
